@@ -1,5 +1,7 @@
 // const bcrypt = require('bcrypt');
 const User = require('../models/user');
+const BadReqError = require('../errors/bad-req-err');
+const NotFoundError = require('../errors/not-found-err');
 
 const getProfile = (req, res, next) => {
   User.findById(req.user._id)
