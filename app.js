@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const rateLimit = require('express-rate-limit');
@@ -16,6 +17,8 @@ const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // за 15 минут
   max: 100,
 });
+
+console.log(process.env.NODE_ENV);
 
 const randomString = crypto
   .randomBytes(16)
