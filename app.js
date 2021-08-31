@@ -10,6 +10,7 @@ const { login, createUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const { errorLogger, requestLogger } = require('./middlewares/logger');
 
+const { BASE_URL = 'mongodb://localhost:27017/moviesdb' } = process.env;
 const { PORT = 3000 } = process.env;
 const app = express();
 
@@ -26,7 +27,7 @@ const randomString = crypto
 
 console.log(randomString);
 
-mongoose.connect('mongodb://localhost:27017/bitfilmsdb', {
+mongoose.connect(BASE_URL, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
