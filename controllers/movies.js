@@ -69,7 +69,7 @@ const deleteMovie = (req, res, next) => {
       if (err.name === 'CastError') {
         throw new BadReqError('Карточка по указанному id не найдена');
       } else if (err.message === 'IncorrectId') {
-        throw new NotFoundError('Карточка по указанному id не найдена');
+        next(new NotFoundError('Карточка по указанному id не найдена'));
       } else next(err);
     });
 };
