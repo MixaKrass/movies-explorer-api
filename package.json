@@ -1,0 +1,44 @@
+{
+  "name": "movieapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint .",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MixaKrass/movies-explorer-api.git"
+  },
+  "author": "mixa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MixaKrass/movies-explorer-api/issues"
+  },
+  "homepage": "https://github.com/MixaKrass/movies-explorer-api#readme",
+  "devDependencies": {
+    "eslint": "^8.0.1",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "celebrate": "^15.0.0",
+    "cors": "^2.8.5",
+    "depcheck": "^1.4.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.3.0",
+    "express-winston": "^4.1.0",
+    "helmet": "^4.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.10",
+    "nodemon": "^2.0.12",
+    "validator": "^13.6.0",
+    "winston": "^3.3.3"
+  },
+  "keywords": []
+}
