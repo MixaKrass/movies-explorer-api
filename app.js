@@ -23,9 +23,7 @@ const allowedCors = [
   'http://localhost:3000',
 ];
 
-app.use(cors({
-  origin: allowedCors,
-}));
+
 
 app.use(cors({
   origin(origin, callback) {
@@ -46,7 +44,11 @@ const limiter = rateLimit({
   max: 100,
 });
 
-/* app.use((req, res, next) => {
+/* app.use(cors({
+  origin: allowedCors,
+}));
+
+app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', '*');
   res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
