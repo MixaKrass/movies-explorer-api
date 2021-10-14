@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const { celebrate, Joi } = require('celebrate');
@@ -13,6 +14,18 @@ const { errorLogger, requestLogger } = require('./middlewares/logger');
 const { BASE_URL = 'mongodb://localhost:27017/moviesdb' } = process.env;
 const { PORT = 3000 } = process.env;
 const app = express();
+
+const allowedCors = [
+  'https://mixakras.films.nomoredomains.club',
+  'http://mixakras.films.nomoredomains.club',
+  'https://api.mixakras.films.nomoredomains.club',
+  'http://api.mixakras.films.nomoredomains.club',
+  'http://localhost:3000',
+];
+
+app.use(cors({
+  origin: allowedCors,
+}));
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // за 15 минут
