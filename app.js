@@ -27,17 +27,31 @@ app.use(cors({
   origin: allowedCors,
 }));
 
+app.use(cors({
+  origin(origin, callback) {
+    if (allowedCors.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Проблемы с CORS'));
+    }
+  },
+  methods: ('GET,HEAD,PUT,PATCH,POST,DELETE'),
+  allowedHeaders: ('Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Allow-Methods'),
+  credentials: true,
+}));
+app.options('*', cors());
+
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // за 15 минут
   max: 100,
 });
 
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', '*');
   res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
   next();
-});
+}); */
 
 console.log(process.env.NODE_ENV);
 
