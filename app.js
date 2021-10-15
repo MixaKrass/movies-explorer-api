@@ -31,8 +31,8 @@ app.use(cors({
       callback(new Error('Проблемы с CORS'));
     }
   },
-  methods: ('GET,HEAD,PUT,PATCH,POST,DELETE'),
-  allowedHeaders: ('Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Allow-Methods'),
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Authorization', 'Content-Type', 'Accept'],
   credentials: true,
 }));
 app.options('*', cors());
