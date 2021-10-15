@@ -14,6 +14,13 @@ const { BASE_URL = 'mongodb://localhost:27017/moviesdb' } = process.env;
 const { PORT = 3000 } = process.env;
 const app = express();
 
+mongoose.connect(BASE_URL, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+});
+
 const allowedCors = [
   'https://mixakras.films.nomoredomains.club',
   'https://api.mixakras.films.nomoredomains.club',
@@ -58,12 +65,7 @@ const randomString = crypto
 
 console.log(randomString);
 
-mongoose.connect(BASE_URL, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true,
-});
+
 
 app.use(requestLogger);
 app.use(limiter);
