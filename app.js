@@ -23,8 +23,6 @@ const allowedCors = [
   'http://localhost:3000',
 ];
 
-
-
 app.use(cors({
   origin(origin, callback) {
     if (allowedCors.includes(origin) || !origin) {
@@ -33,8 +31,8 @@ app.use(cors({
       callback(new Error('Проблемы с CORS'));
     }
   },
-  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Authorization', 'Content-Type', 'Accept'],
+  methods: ('GET,HEAD,PUT,PATCH,POST,DELETE'),
+  allowedHeaders: ('Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Allow-Methods'),
   credentials: true,
 }));
 app.options('*', cors());
