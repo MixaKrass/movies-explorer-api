@@ -27,19 +27,6 @@ const allowedCors = [
   'http://localhost:3000',
 ];
 
-app.use(cors({
-  origin(origin, callback) {
-    if (allowedCors.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Проблемы с CORS'));
-    }
-  },
-  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Authorization', 'Content-Type', 'Accept'],
-  credentials: true,
-}));
-app.options('*', cors());
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // за 15 минут
@@ -66,6 +53,19 @@ const randomString = crypto
 console.log(randomString);
 
 
+app.use(cors({
+  origin(origin, callback) {
+    if (allowedCors.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Проблемы с CORS'));
+    }
+  },
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Authorization', 'Content-Type', 'Accept'],
+  credentials: true,
+}));
+app.options('*', cors());
 
 app.use(requestLogger);
 app.use(limiter);
