@@ -17,9 +17,7 @@ const app = express();
 
 const allowedCors = [
   'https://mixakras.films.nomoredomains.club',
-  'http://mixakras.films.nomoredomains.club',
   'https://api.mixakras.films.nomoredomains.club',
-  'http://api.mixakras.films.nomoredomains.club',
   'http://localhost:3000',
 ];
 
