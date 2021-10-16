@@ -16,7 +16,7 @@ const app = express();
 
 mongoose.connect(BASE_URL, {
   useNewUrlParser: true,
-  useFindAndModify: false,
+  useUnifiedTopology: true,
 });
 
 const allowedCors = [
