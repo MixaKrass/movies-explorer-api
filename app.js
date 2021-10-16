@@ -10,7 +10,7 @@ const crypto = require('crypto');
 const { login, createUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const { errorLogger, requestLogger } = require('./middlewares/logger');
-const { BASE_URL = 'mongodb://localhost:27017/moviesdb' } = process.env;
+const { BASE_URL = 'mongodb://localhost:27017/bitfilmsdb' } = process.env;
 const { PORT = 3000 } = process.env;
 const app = express();
 
