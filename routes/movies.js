@@ -16,10 +16,10 @@ router.get('/movies', getMovies);
 
 router.post('/movies', celebrate({
   body: Joi.object().keys({
-    country: Joi.string().min(2).max(30),
-    director: Joi.string().min(2).max(30),
+    country: Joi.string().min(2),
+    director: Joi.string().min(2),
     duration: Joi.number(),
-    year: Joi.string().min(2).max(30),
+    year: Joi.string().min(2),
     description: Joi.string().min(2),
     image: Joi.string().required().custom(checkURL),
     trailer: Joi.string().required().custom(checkURL),
